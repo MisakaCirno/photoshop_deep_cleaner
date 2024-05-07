@@ -48,7 +48,8 @@
 * 在Photoshop中打开psd文件，菜单栏选择 **文件 --> 脚本 --> 浏览**；
 * 选择解压后的 PsDeepCleaner.jsx 文件。
 
-## 开发者参考文档
+## 开发者参考链接
 
+- https://marketplace.visualstudio.com/items?itemName=Adobe.extendscript-debug
 - https://extendscript.docsforadobe.dev/scripting-xmp/accessing-the-xmp-scripting-api.html
 - https://github.com/Adobe-CEP/CEP-Resources/tree/master/Documentation/Product%20specific%20Documentation/Photoshop%20Scripting
