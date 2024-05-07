@@ -26,6 +26,10 @@
 
 很多操作都会让PS向其中添加记录内容（例如复制功能），从而导致PS文件逐渐变大。
 
+> 官方说明：
+> If the source document for a copy-and-paste or place operation has a document ID, that ID is added to this list in the destination document's XMP.
+> （如果复制粘贴或放置操作的源文档具有文档ID，则将该ID添加到目标文档的XMP中。）
+
 这种记录很难被用户直接察觉，且无法直接通过PS的功能清理。
 
 ### 为什么需要处理智能对象？
@@ -63,3 +67,4 @@
 - https://marketplace.visualstudio.com/items?itemName=Adobe.extendscript-debug
 - https://extendscript.docsforadobe.dev/scripting-xmp/accessing-the-xmp-scripting-api.html
 - https://github.com/Adobe-CEP/CEP-Resources/tree/master/Documentation/Product%20specific%20Documentation/Photoshop%20Scripting
+- https://github.com/adobe/xmp-docs/blob/master/XMPNamespaces/photoshop.md
