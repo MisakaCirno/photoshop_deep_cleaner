@@ -1,6 +1,6 @@
 ﻿/**
  * 原项目地址：https://github.com/julysohu/photoshop_deep_cleaner
- * 本项目地址：https://github.com/MisakaCirno/photoshop_deep_cleaner
+ * 本项目地址：https://github.com/MisakaCirno/photoshop_deep_cleaner_plus
  * 
  * 版本：V2.0.0
  * 
