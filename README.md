@@ -1,5 +1,14 @@
 # 清理PSD文件脚本
 
+## 原作者信息
+原项目地址：https://github.com/julysohu/photoshop_deep_cleaner
+
+原项目作者：https://github.com/julysohu
+
+由于原项目已许久未维护，且项目中一些功能需要改进。
+
+故fork了本仓库，并改名为Photoshop Deep Cleaner Plus。
+
 ## PSD文件过大的原因
 
 ### 什么是原始数据？
