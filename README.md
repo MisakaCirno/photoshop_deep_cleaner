@@ -46,7 +46,9 @@
 
 * 下载本项目的压缩包，解压到本地；
 * 在Photoshop中打开psd文件，菜单栏选择 **文件 --> 脚本 --> 浏览**；
-* 选择解压后的 PsDeepCleaner.jsx 文件。
+* 选择解压后的 PsDeepCleanerPro.jsx 文件。
+
+* 或者您也可以只下载项目中的 PsDeepCleanerPro.jsx 文件。
 
 ## 开发者参考链接
 
