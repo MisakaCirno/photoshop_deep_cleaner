@@ -1,0 +1,55 @@
+/**
+ * $.write的包装函数
+ * @param {*} content 要输出的内容
+ */
+function log(content) {
+    $.write(content);
+}
+
+/**
+ * $.writeln的包装函数
+ * @param {*} content 要输出的内容
+ */
+function logL(content) {
+    $.writeln(content);
+}
+
+/**
+ * 获取指定路径下的所有指定后缀名的文件
+ * @param folderPath 文件夹路径
+ * @param imageFormats 要选择后缀名的数组，如不填写，默认为['png', 'jpg', 'jpeg']
+ * @returns 
+ */
+function getAllFilesInFolder(folderPath, imageFormats) {
+    var image_files = [];
+
+    // 把后缀名数组拼合起来
+    var formats = undefined;
+
+    if (imageFormats && imageFormats.length > 0) {
+        formats = imageFormats.join('|');
+    } else {
+        formats = 'png|jpg|jpeg';
+    }
+    
+    var reg = new RegExp('\\.(' + formats + ')$', 'i');
+
+    var folder = new Folder(folderPath);
+
+    var files = folder.getFiles();
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+
+        // 只要符合条件的文件
+        if (file instanceof File && reg.test(file.name)) {
+            image_files.push(file);
+        }
+        // 如果是文件夹，递归获取文件
+        else if (file instanceof Folder) {
+            var subFiles = getAllFilesInFolder(file);
+            image_files = image_files.concat(subFiles);
+        }
+    }
+
+    return image_files;
+}
