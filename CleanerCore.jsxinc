@@ -229,7 +229,7 @@ function createCleaner() {
                         "智能对象：" + this.statisticData.ArtLayerSmartObject + " 个\n\n" +
 
                         "清理了：" + this.statisticData.RemoveDataLength + " 字节的祖先数据\n" +
-                        "文件瘦身约：" + (this.statisticData.FileSizeDifference / 1024 / 1024).toFixed(2) + " MB（" + this.statisticData.FileSizeDifference + " 字节）\n\n" +
+                        "文件瘦身约：" + bytesToMB(this.statisticData.FileSizeDifference) + " MB（" + this.statisticData.FileSizeDifference + " 字节）\n\n" +
 
                         "当前文件的所有更改均已保存。";
 

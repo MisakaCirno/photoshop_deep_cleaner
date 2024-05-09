@@ -53,3 +53,7 @@ function getAllFilesInFolder(folderPath, imageFormats) {
 
     return image_files;
 }
+
+function bytesToMB(bytes) {
+    return (bytes / 1024 / 1024).toFixed(2);
+}
