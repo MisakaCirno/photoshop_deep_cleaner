@@ -59,10 +59,12 @@
 
 ## 使用说明
 
-1. 下载本项目的压缩包，解压到本地（或者您也可以只下载项目中的 PsDeepCleanerPlus.jsx 文件。）；
-2. 在Photoshop中打开psd文件，菜单栏选择 **文件 --> 脚本 --> 浏览**；
-3. 选择 PsDeepCleanerPlus.jsx 文件。
-4. 根据提示执行脚本
+1. 下载本项目的压缩包，解压到本地。
+2. 在Photoshop中打开psd文件，菜单栏选择 **文件 --> 脚本 --> 浏览**。
+3. 选择脚本文件：
+   - 选择 PsDeepCleanerPlus.jsx 文件针对当前文件进行处理；
+   - 选择 PsDeepCleanerPlusForFolder.jsx 对指定路径下所有指定格式的文件处理。
+4. 根据提示执行脚本。
 
 ## 开发者参考链接
 
