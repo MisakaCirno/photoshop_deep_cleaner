@@ -15,18 +15,19 @@ function main() {
     if (targetFolder != null) {
         logL("目标文件夹为: " + targetFolder);
 
-        var files = getAllFilesInFolder(targetFolder);
+        var files = getAllFilesInFolder(targetFolder, ["psd","psb"]);
 
         if (files.length == 0) {
-            logL("在目标文件夹下没有发现任何图片文件。");
-            alert("在目标文件夹下没有发现任何图片文件。");
+            var content = "在目标文件夹下没有发现任何目标格式文件。";
+            logL(content);
+            alert(content);
             return;
         }
         else{
-            logL("在目标文件夹下发现了：" +  files.length + " 个图片文件。");
+            logL("在目标文件夹下发现了：" +  files.length + " 个目标格式文件。");
         }
 
-        var outputCSVContent = ["文件完整路径,文件原大小,文件处理后大小"];
+        var outputCSVContent = ["File Full Path,Previous File Size,Before File Size"];
         var totalFileSizeDiff = 0;
 
         // 遍历文件开始处理
@@ -60,7 +61,7 @@ function main() {
         outputFile.write(outputCSVContent.join("\n"));
         outputFile.close();
 
-        alert("处理完成，处理结果已经保存到：" + outputFile.fsName + "，总共节省了：" + totalFileSizeDiff + " 字节。");
+        alert("处理完成，处理结果已经保存到：" + outputFile.fsName + "，总共减小了：" + bytesToMB(totalFileSizeDiff) + " MB（" + totalFileSizeDiff + " 字节）");
     }
 }
 
