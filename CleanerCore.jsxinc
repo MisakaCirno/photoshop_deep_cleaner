@@ -140,7 +140,19 @@ function createCleaner() {
             /**
              * 总共删除的数据长度
              */
-            RemoveDataLength: 0
+            RemoveDataLength: 0,
+            /**
+             * 处理前的文件大小
+             */
+            OldFileSize: 0,
+            /**
+             * 处理后的文件大小
+             */
+            NewFileSize: 0,
+            /**
+             * 文件大小变化
+             */
+            FileSizeDifference:0
         },
 
         /**
@@ -150,6 +162,8 @@ function createCleaner() {
             this.statisticData.PSDocument = 0;
             this.statisticData.ArtLayerSmartObject = 0;
             this.statisticData.RemoveDataLength = 0;
+            this.statisticData.OldFileSize = 0;
+            this.statisticData.NewFileSize = 0;
         },
 
         /**
@@ -166,8 +180,9 @@ function createCleaner() {
 
         /**
          * 开始处理当前打开的文档。
+         * @param {boolean} ignoreReminder 是否忽略提示
          */
-        startProcessDocument: function () {
+        startProcessDocument: function (ignoreReminder) {
             try {
                 // 检查当前应用是否为Photoshop
                 if (String(app.name).search("Photoshop") <= 0) {
@@ -181,6 +196,10 @@ function createCleaner() {
                     return;
                 }
 
+                if(ignoreReminder == undefined){
+                    ignoreReminder = false;
+                }
+
                 this.clearStatisticData();
 
                 this.targetDocument = app.activeDocument;
@@ -192,15 +211,15 @@ function createCleaner() {
                     "清理结束后，会保存当前文件的所有修改。\n\n" +
                     "是否开始清理当前文档？";
 
-                if (confirm(reminderString, true, "请确认")) {
+                if (ignoreReminder || confirm(reminderString, true, "请确认")) {
 
-                    var oldFileSize = this.targetDocument.fullName.length;
+                    this.statisticData.OldFileSize =  this.targetDocument.fullName.length;
 
                     this.deleteDocumentAncestorsMetadata();
 
-                    var newFileSize = this.targetDocument.fullName.length;
+                    this.statisticData.NewFileSize = this.targetDocument.fullName.length;
 
-                    var sizeChange = oldFileSize - newFileSize;
+                    this.statisticData.FileSizeDifference = this.statisticData.OldFileSize - this.statisticData.NewFileSize;
 
                     var workDoneString =
                         "对【" + this.targetDocument.name + "】文件的清理工作已完成！\n\n" +
@@ -210,11 +229,13 @@ function createCleaner() {
                         "智能对象：" + this.statisticData.ArtLayerSmartObject + " 个\n\n" +
 
                         "清理了：" + this.statisticData.RemoveDataLength + " 字节的祖先数据\n" +
-                        "文件瘦身约：" + (sizeChange / 1024 / 1024).toFixed(2) + " MB（" + sizeChange + " 字节）\n\n" +
+                        "文件瘦身约：" + (this.statisticData.FileSizeDifference / 1024 / 1024).toFixed(2) + " MB（" + this.statisticData.FileSizeDifference + " 字节）\n\n" +
 
                         "当前文件的所有更改均已保存。";
 
-                    alert(workDoneString, "清理完成！", false);
+                    if(!ignoreReminder){
+                        alert(workDoneString, "清理完成！", false);
+                    }
                 }
             } catch (e) {
                 var errorString =
