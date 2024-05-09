@@ -66,9 +66,10 @@
    - 选择 PsDeepCleanerPlusForFolder.jsx 对指定路径下所有指定格式的文件处理。
 4. 根据提示执行脚本。
 
-## 开发者参考链接
+## 参考链接
 
 - https://marketplace.visualstudio.com/items?itemName=Adobe.extendscript-debug
 - https://extendscript.docsforadobe.dev/scripting-xmp/accessing-the-xmp-scripting-api.html
 - https://github.com/Adobe-CEP/CEP-Resources/tree/master/Documentation/Product%20specific%20Documentation/Photoshop%20Scripting
 - https://github.com/adobe/xmp-docs/blob/master/XMPNamespaces/photoshop.md
+- https://helpx.adobe.com/photoshop/using/scripting.html
